@@ -1,0 +1,1102 @@
+fileFormatVersion: 2
+guid: d9c1ed5dfd4f22a4caa8fcb39119c5e2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3439052198380103301
+    second: map 3 cut_0
+  - first:
+      213: -5783087599830109148
+    second: map 3 cut_1
+  - first:
+      213: 1012166070922196922
+    second: map 3 cut_2
+  - first:
+      213: -5223459713908161358
+    second: map 3 cut_3
+  - first:
+      213: -6017440341016078534
+    second: map 3 cut_4
+  - first:
+      213: -5555492500226153648
+    second: map 3 cut_5
+  - first:
+      213: -7728218742174892748
+    second: map 3 cut_6
+  - first:
+      213: 1333937578034751547
+    second: map 3 cut_7
+  - first:
+      213: -2593694766255019206
+    second: map 3 cut_8
+  - first:
+      213: -4922519345897421682
+    second: map 3 cut_9
+  - first:
+      213: 7500149146465382372
+    second: map 3 cut_10
+  - first:
+      213: 465551319447966015
+    second: map 3 cut_11
+  - first:
+      213: -2966187866584883048
+    second: map 3 cut_12
+  - first:
+      213: -230229324125467477
+    second: map 3 cut_13
+  - first:
+      213: -4592894312282688192
+    second: map 3 cut_14
+  - first:
+      213: 115309373476283317
+    second: map 3 cut_15
+  - first:
+      213: -1126029370992059992
+    second: map 3 cut_16
+  - first:
+      213: 8790531365170559677
+    second: map 3 cut_17
+  - first:
+      213: -2516032847745803352
+    second: map 3 cut_18
+  - first:
+      213: -8162954244592737898
+    second: map 3 cut_19
+  - first:
+      213: -4503404834696728264
+    second: map 3 cut_20
+  - first:
+      213: 4054061216578231460
+    second: map 3 cut_21
+  - first:
+      213: -4874379198101071720
+    second: map 3 cut_22
+  - first:
+      213: -8504187740022480893
+    second: map 3 cut_23
+  - first:
+      213: -7527028434972312298
+    second: map 3 cut_24
+  - first:
+      213: 3107178767261852238
+    second: map 3 cut_25
+  - first:
+      213: -4631944781485753056
+    second: map 3 cut_26
+  - first:
+      213: -2471993773832708472
+    second: map 3 cut_27
+  - first:
+      213: -1562660033766368914
+    second: map 3 cut_28
+  - first:
+      213: 2415785035102221821
+    second: map 3 cut_29
+  - first:
+      213: -1766171306625762296
+    second: map 3 cut_30
+  - first:
+      213: 9150165989125559346
+    second: map 3 cut_31
+  - first:
+      213: 3331052929544127323
+    second: map 3 cut_32
+  - first:
+      213: -3330957193280962910
+    second: map 3 cut_33
+  - first:
+      213: -803858928829884598
+    second: map 3 cut_34
+  - first:
+      213: -7205809764430327890
+    second: map 3 cut_35
+  - first:
+      213: -7779662486648222233
+    second: map 3 cut_36
+  - first:
+      213: 7709364490247050209
+    second: map 3 cut_37
+  - first:
+      213: -7164360429717529361
+    second: map 3 cut_38
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: map 3 cut_0
+      rect:
+        serializedVersion: 2
+        x: 808
+        y: 12048
+        width: 9920
+        height: 2269
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 586e878e0c7f9bf20800000000000000
+      internalID: 3439052198380103301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: map 3 cut_1
+      rect:
+        serializedVersion: 2
+        x: 1386
+        y: 8748
+        width: 1177
+        height: 2209
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 424f823d7785ebfa0800000000000000
+      internalID: -5783087599830109148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: map 3 cut_2
+      rect:
+        serializedVersion: 2
+        x: 4384
+        y: 8748
+        width: 1178
+        height: 2209
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab73507cdafeb0e00800000000000000
+      internalID: 1012166070922196922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: map 3 cut_3
+      rect:
+        serializedVersion: 2
+        x: 7008
+        y: 10691
+        width: 1761
+        height: 179
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b4c0f5b01b8287b0800000000000000
+      internalID: -5223459713908161358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: map 3 cut_4
+      rect:
+        serializedVersion: 2
+        x: 9835
+        y: 10252
+        width: 920
+        height: 441
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3791a044e1cd7ca0800000000000000
+      internalID: -6017440341016078534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: map 3 cut_5
+      rect:
+        serializedVersion: 2
+        x: 11746
+        y: 9879
+        width: 995
+        height: 814
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0536cab510de6e2b0800000000000000
+      internalID: -5555492500226153648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: map 3 cut_6
+      rect:
+        serializedVersion: 2
+        x: 2107
+        y: 8170
+        width: 279
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43d3626fff9dfb490800000000000000
+      internalID: -7728218742174892748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: map 3 cut_7
+      rect:
+        serializedVersion: 2
+        x: 3146
+        y: 8215
+        width: 467
+        height: 164
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b386e43e829138210800000000000000
+      internalID: 1333937578034751547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: map 3 cut_8
+      rect:
+        serializedVersion: 2
+        x: 3604
+        y: 8259
+        width: 156
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3b64912a58510cd0800000000000000
+      internalID: -2593694766255019206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: map 3 cut_9
+      rect:
+        serializedVersion: 2
+        x: 3627
+        y: 8244
+        width: 191
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e84cbcb4cb2bfabb0800000000000000
+      internalID: -4922519345897421682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: map 3 cut_10
+      rect:
+        serializedVersion: 2
+        x: 4167
+        y: 8146
+        width: 321
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4efa48549e1e51860800000000000000
+      internalID: 7500149146465382372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: map 3 cut_11
+      rect:
+        serializedVersion: 2
+        x: 9355
+        y: 8111
+        width: 482
+        height: 167
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f31196c5578f57600800000000000000
+      internalID: 465551319447966015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: map 3 cut_12
+      rect:
+        serializedVersion: 2
+        x: 11746
+        y: 8074
+        width: 874
+        height: 856
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8906223d9dbf5d6d0800000000000000
+      internalID: -2966187866584883048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: map 3 cut_13
+      rect:
+        serializedVersion: 2
+        x: 1051
+        y: 6565
+        width: 4560
+        height: 1673
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bac8f9646af0eccf0800000000000000
+      internalID: -230229324125467477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: map 3 cut_14
+      rect:
+        serializedVersion: 2
+        x: 4369
+        y: 8034
+        width: 401
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0457a7905f2c240c0800000000000000
+      internalID: -4592894312282688192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: map 3 cut_15
+      rect:
+        serializedVersion: 2
+        x: 9346
+        y: 8128
+        width: 195
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b3a355a349a99100800000000000000
+      internalID: 115309373476283317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: map 3 cut_16
+      rect:
+        serializedVersion: 2
+        x: 9776
+        y: 8143
+        width: 235
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a99c57c04a8f50f0800000000000000
+      internalID: -1126029370992059992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: map 3 cut_17
+      rect:
+        serializedVersion: 2
+        x: 9822
+        y: 8123
+        width: 266
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbabbefc3bd3ef970800000000000000
+      internalID: 8790531365170559677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: map 3 cut_18
+      rect:
+        serializedVersion: 2
+        x: 9187
+        y: 8085
+        width: 839
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ab95ea9471451dd0800000000000000
+      internalID: -2516032847745803352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: map 3 cut_19
+      rect:
+        serializedVersion: 2
+        x: 9123
+        y: 6330
+        width: 1247
+        height: 1504
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 691684d1d5c57be80800000000000000
+      internalID: -8162954244592737898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: map 3 cut_20
+      rect:
+        serializedVersion: 2
+        x: 898
+        y: 2981
+        width: 1587
+        height: 2227
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 831ff14b921b081c0800000000000000
+      internalID: -4503404834696728264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: map 3 cut_21
+      rect:
+        serializedVersion: 2
+        x: 3544
+        y: 3471
+        width: 317
+        height: 1048
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ac55d7723be24830800000000000000
+      internalID: 4054061216578231460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: map 3 cut_22
+      rect:
+        serializedVersion: 2
+        x: 4480
+        y: 4246
+        width: 285
+        height: 1062
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 898d1a4e1f9ba5cb0800000000000000
+      internalID: -4874379198101071720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: map 3 cut_23
+      rect:
+        serializedVersion: 2
+        x: 4816
+        y: 3844
+        width: 312
+        height: 1404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3006abcbe4e0bf980800000000000000
+      internalID: -8504187740022480893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: map 3 cut_24
+      rect:
+        serializedVersion: 2
+        x: 7792
+        y: 3917
+        width: 312
+        height: 1404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61df53fa48f9a8790800000000000000
+      internalID: -7527028434972312298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: map 3 cut_25
+      rect:
+        serializedVersion: 2
+        x: 8155
+        y: 4319
+        width: 285
+        height: 1062
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e42674450aaee1b20800000000000000
+      internalID: 3107178767261852238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: map 3 cut_26
+      rect:
+        serializedVersion: 2
+        x: 9059
+        y: 3544
+        width: 317
+        height: 1048
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02d315823c608bfb0800000000000000
+      internalID: -4631944781485753056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: map 3 cut_27
+      rect:
+        serializedVersion: 2
+        x: 10435
+        y: 3054
+        width: 1587
+        height: 2227
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88e59b782c6b1bdd0800000000000000
+      internalID: -2471993773832708472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: map 3 cut_28
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 617
+        width: 1603
+        height: 1342
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e69d7a68af0505ae0800000000000000
+      internalID: -1562660033766368914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: map 3 cut_29
+      rect:
+        serializedVersion: 2
+        x: 3519
+        y: 589
+        width: 1299
+        height: 1008
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df5f8f6a0b7968120800000000000000
+      internalID: 2415785035102221821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: map 3 cut_30
+      rect:
+        serializedVersion: 2
+        x: 5603
+        y: 1023
+        width: 637
+        height: 652
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80c7510ed8c4d77e0800000000000000
+      internalID: -1766171306625762296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: map 3 cut_31
+      rect:
+        serializedVersion: 2
+        x: 7575
+        y: 956
+        width: 637
+        height: 652
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23490b9cc7bebfe70800000000000000
+      internalID: 9150165989125559346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: map 3 cut_32
+      rect:
+        serializedVersion: 2
+        x: 8997
+        y: 522
+        width: 1299
+        height: 1008
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b538081adf64a3e20800000000000000
+      internalID: 3331052929544127323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: map 3 cut_33
+      rect:
+        serializedVersion: 2
+        x: 12622
+        y: 1085
+        width: 169
+        height: 485
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2aeb474b41016c1d0800000000000000
+      internalID: -3330957193280962910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: map 3 cut_34
+      rect:
+        serializedVersion: 2
+        x: 12781
+        y: 1337
+        width: 115
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a479191309e18d4f0800000000000000
+      internalID: -803858928829884598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: map 3 cut_35
+      rect:
+        serializedVersion: 2
+        x: 12961
+        y: 1337
+        width: 117
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eafc6108232dffb90800000000000000
+      internalID: -7205809764430327890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: map 3 cut_36
+      rect:
+        serializedVersion: 2
+        x: 13068
+        y: 1085
+        width: 169
+        height: 479
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ed86e2df26190490800000000000000
+      internalID: -7779662486648222233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: map 3 cut_37
+      rect:
+        serializedVersion: 2
+        x: 12095
+        y: 351
+        width: 179
+        height: 705
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e39f2d682a2dfa60800000000000000
+      internalID: 7709364490247050209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: map 3 cut_38
+      rect:
+        serializedVersion: 2
+        x: 13585
+        y: 351
+        width: 178
+        height: 707
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fec52d7c524139c90800000000000000
+      internalID: -7164360429717529361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      map 3 cut_0: 3439052198380103301
+      map 3 cut_1: -5783087599830109148
+      map 3 cut_10: 7500149146465382372
+      map 3 cut_11: 465551319447966015
+      map 3 cut_12: -2966187866584883048
+      map 3 cut_13: -230229324125467477
+      map 3 cut_14: -4592894312282688192
+      map 3 cut_15: 115309373476283317
+      map 3 cut_16: -1126029370992059992
+      map 3 cut_17: 8790531365170559677
+      map 3 cut_18: -2516032847745803352
+      map 3 cut_19: -8162954244592737898
+      map 3 cut_2: 1012166070922196922
+      map 3 cut_20: -4503404834696728264
+      map 3 cut_21: 4054061216578231460
+      map 3 cut_22: -4874379198101071720
+      map 3 cut_23: -8504187740022480893
+      map 3 cut_24: -7527028434972312298
+      map 3 cut_25: 3107178767261852238
+      map 3 cut_26: -4631944781485753056
+      map 3 cut_27: -2471993773832708472
+      map 3 cut_28: -1562660033766368914
+      map 3 cut_29: 2415785035102221821
+      map 3 cut_3: -5223459713908161358
+      map 3 cut_30: -1766171306625762296
+      map 3 cut_31: 9150165989125559346
+      map 3 cut_32: 3331052929544127323
+      map 3 cut_33: -3330957193280962910
+      map 3 cut_34: -803858928829884598
+      map 3 cut_35: -7205809764430327890
+      map 3 cut_36: -7779662486648222233
+      map 3 cut_37: 7709364490247050209
+      map 3 cut_38: -7164360429717529361
+      map 3 cut_4: -6017440341016078534
+      map 3 cut_5: -5555492500226153648
+      map 3 cut_6: -7728218742174892748
+      map 3 cut_7: 1333937578034751547
+      map 3 cut_8: -2593694766255019206
+      map 3 cut_9: -4922519345897421682
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

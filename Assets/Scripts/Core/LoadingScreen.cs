@@ -24,6 +24,6 @@ public class LoadingScreen : MonoBehaviour
         }
 
         slider.value = 1f;
-        MainMenuManager.Instance.LoadGameScene();
+        // MainMenuManager.Instance.LoadGameScene();
     }
 }

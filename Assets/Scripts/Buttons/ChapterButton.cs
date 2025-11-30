@@ -26,7 +26,7 @@ public class ChapterButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         if (isUnlocked)
         {
             isSelected = true;
-            MainMenuManager.Instance.ShowChapterInfoPanel();
+            // MainMenuManager.Instance.ShowChapterInfoPanel();
         }
     }
 

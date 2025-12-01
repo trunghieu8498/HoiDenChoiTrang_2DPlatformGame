@@ -12,8 +12,7 @@ public class SoundManager : MonoBehaviour
     public AudioSource audioSource;
     public AudioMixer audioMixer;
     public float defaultVolume = 0.5f;
-
-    private bool initialized = false;
+    
 
     private void Start()
     {
@@ -25,13 +24,12 @@ public class SoundManager : MonoBehaviour
             audioSource = GetComponent<AudioSource>();
             audioSource.clip = backgroundMusic;
             audioSource.loop = true;
-            // audioSource.Play();
+            audioSource.Play();
 
             // Chỉ set volume mặc định lần đầu
             SetMusicVolume(defaultVolume);
             SetSFXVolume(defaultVolume);
 
-            initialized = true;
         }
         else
         {
@@ -49,7 +47,6 @@ public class SoundManager : MonoBehaviour
             float mapped = Mathf.Lerp(0.0001f, 2f, value);
             audioMixer.SetFloat("Music", Mathf.Log10(mapped) * 20f);
         }
-
     }
 
     public void SetSFXVolume(float value)

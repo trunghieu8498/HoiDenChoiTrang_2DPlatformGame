@@ -6,10 +6,10 @@ public class PlayerMovement : MonoBehaviour
     public bool isMovable = false;
 
     [Header("Jump Forces (horizontal, vertical)")]
-    public float horizontalForce = 4f;        // single horizontal
-    public float verticalForce = 7f;          // single vertical
-    public float doubleHorizontalForce = 6f;  // double horizontal
-    public float doubleVerticalForce = 10f;   // double vertical
+    public float horizontalForce = 10f;        // single horizontal
+    public float verticalForce = 16f;          // single vertical
+    public float doubleHorizontalForce = 12f;  // double horizontal
+    public float doubleVerticalForce = 20f;   // double vertical
 
     [Header("Double click")]
     public float doubleClickTime = 0.25f;     // cửa sổ double click (giây)
@@ -19,6 +19,9 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheck;
     public float groundRadius = 0.2f;
     public LayerMask groundLayer;
+
+    [Header("Animation")]
+    public Animator animator; // gán trong Inspector hoặc tự GetComponent nếu không gán
 
     Rigidbody2D rb;
     Vector3 originalScale;
@@ -31,10 +34,21 @@ public class PlayerMovement : MonoBehaviour
     Coroutine clickCoroutine = null;
     bool isClickLocked = false; // lock để tránh spam liên tục (tuỳ biến)
 
+    // animator hashes (tối ưu)
+    int isGroundedHash;
+    int jumpTriggerHash;
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         originalScale = transform.localScale;
+
+        if (animator == null)
+        {
+            animator = GetComponent<Animator>();
+        }
+
+        isGroundedHash = Animator.StringToHash("isGrounded");
+        jumpTriggerHash = Animator.StringToHash("Jump");
     }
 
     void Start()
@@ -53,6 +67,8 @@ public class PlayerMovement : MonoBehaviour
         {
             HandleClick();
         }
+
+        // (option) update thêm param khác nếu cần (ví dụ vertical velocity) - hiện tại chỉ dùng isGrounded + Jump trigger
     }
 
     void HandleClick()
@@ -60,14 +76,14 @@ public class PlayerMovement : MonoBehaviour
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         bool clickRight = mouseWorldPos.x > transform.position.x;
 
+
         if (pendingClicks == 0)
         {
-            // lần click đầu
             pendingClicks = 1;
             firstClickTime = Time.time;
             firstClickDirectionRight = clickRight;
 
-            // start coroutine chờ doubleClickTime
+
             if (clickCoroutine != null) StopCoroutine(clickCoroutine);
             clickCoroutine = StartCoroutine(DoubleClickWait(clickRight));
         }
@@ -103,6 +119,15 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    void PlayJumpAnimation()
+    {
+        if (animator != null)
+        {
+            animator.SetTrigger("Jump");
+        }
+        Debug.Log("Play Jump Animation");
+    }
+
     IEnumerator DoubleClickWait(bool clickRight)
     {
         // chờ xem có click thứ 2 không trong cửa sổ doubleClickTime
@@ -122,6 +147,9 @@ public class PlayerMovement : MonoBehaviour
     {
         // lock ngắn để tránh nhận input ngay lập tức khi rơi (tuỳ bạn có muốn)
         StartCoroutine(TemporaryClickLock(0.05f));
+        StartCoroutine(DelayJumpAnimation());
+
+
         Jump(goRight, horizontalForce, verticalForce);
         Rotate(goRight);
     }
@@ -131,6 +159,9 @@ public class PlayerMovement : MonoBehaviour
         // lock hơi lâu hơn để tránh spam double
         StartCoroutine(TemporaryClickLock(0.12f));
         pendingClicks = 0;
+        StartCoroutine(DelayJumpAnimation());
+
+
         Jump(goRight, doubleHorizontalForce, doubleVerticalForce);
         Rotate(goRight);
     }
@@ -144,7 +175,24 @@ public class PlayerMovement : MonoBehaviour
 
     void GroundCheck()
     {
+        bool prevGrounded = isGrounded;
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, groundLayer);
+
+        // cập nhật animator param nếu có
+
+        if (animator != null && prevGrounded != isGrounded)
+        {
+            animator.SetBool("isGrounded", isGrounded);
+        }
+
+        // (tuỳ chọn) nếu vừa chạm đất (landing), có thể reset trigger hoặc play landing fx
+        // if (!prevGrounded && isGrounded) { /* landed */ }
+    }
+
+    IEnumerator DelayJumpAnimation()
+    {
+        yield return new WaitForFixedUpdate(); // đợi physics cập nhật
+        PlayJumpAnimation();
     }
 
     void Jump(bool goRight, float hForce, float vForce)
@@ -190,11 +238,17 @@ public class PlayerMovement : MonoBehaviour
     {
         isMovable = false;
         rb.bodyType = RigidbodyType2D.Static;
+
+        // tuỳ chọn: tắt animator khi freeze (nếu muốn giữ frame hiện tại thì không)
+        // if (animator != null) animator.enabled = false;
     }
 
     public void UnfreezePlayer()
     {
         rb.bodyType = RigidbodyType2D.Dynamic;
         isMovable = true;
+
+        // nếu đã tắt animator khi freeze, bật lại
+        // if (animator != null) animator.enabled = true;
     }
 }

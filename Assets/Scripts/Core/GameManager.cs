@@ -1,4 +1,6 @@
+using System.Collections;
 using System.Collections.Generic;
+using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,6 +12,7 @@ public class GameManager : MonoBehaviour
     public CameraMovement mainCamera;
     public PlayerMovement playerMovement;
     public Vector2 startPosition;
+    public Vector2 endPosition;
     public GameObject currentMap;
 
     public Vector3 coloringGamePosition = new Vector3(41, -3.6f, -10);
@@ -36,7 +39,7 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public void OpenMapSelected(GameObject mapToOpen, PlayerMovement player, GameObject coloringGame, Vector2 starPos, Vector2 focusPos, Sprite guideBoard)
+    public void OpenMapSelected(GameObject mapToOpen, PlayerMovement player, GameObject coloringGame, Vector2 starPos, Vector2 focusPos, Sprite guideBoard, Sprite mapNameBoard)
     {
         if (currentMap != null)
         {
@@ -48,12 +51,20 @@ public class GameManager : MonoBehaviour
         player.gameObject.SetActive(true);
         playerMovement.transform.position = starPos;
         startPosition = starPos;
-
+        UIManager.Instance.MapName.GetComponent<UnityEngine.UI.Image>().sprite = mapNameBoard;
         coloringGamePosition = new Vector3(focusPos.x, focusPos.y, -10);
         this.coloringGame = coloringGame;
-
+        UIManager.Instance.ShowTopUI();
         UIManager.Instance.LoadMapUI(guideBoard);
-        UIManager.Instance.OpenGuideBoard();
+        PreviewMapLevel(starPos, endPosition);
+    }
+
+    public void PreviewMapLevel(Vector2 startPos, Vector2 endPos)
+    {
+        mainCamera.ResetCamera();
+        playerMovement.FreezePlayer();
+        UIManager.Instance.ShowMapName();
+        StartCoroutine(WaitBeforePreview(2f));
     }
 
     public void StartMapLevel()
@@ -61,6 +72,12 @@ public class GameManager : MonoBehaviour
         playerMovement.UnfreezePlayer();
         mainCamera.FollowPlayer(playerMovement.transform);
         UIManager.Instance.CloseGuideBoard();
+    }
+
+    IEnumerator WaitBeforePreview(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        mainCamera.MoveFromTo(new Vector3(0, 0, -10), new Vector3(34, 0, -10), 2f);
     }
 
     public void RestartGame()
@@ -96,7 +113,7 @@ public class GameManager : MonoBehaviour
         {
             if (mapButtons[i].mapToOpen == currentMap)
             {
-                if(i+1 >= 2) break; //chi mo khoa toi da map 2
+                if (i + 1 >= 2) break; //chi mo khoa toi da map 2
                 mapButtons[i + 1].isUnlocked = true;
                 Debug.Log("Unlocked next map!");
                 break;

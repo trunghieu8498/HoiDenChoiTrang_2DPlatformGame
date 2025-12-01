@@ -30,4 +30,9 @@ public class MainMenuManager : MonoBehaviour
     {
         loadingScreenUI.SetActive(true);
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }

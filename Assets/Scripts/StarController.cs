@@ -8,7 +8,6 @@ public class StarController : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("Star collected!");
             gameObject.SetActive(false);
         }
     }

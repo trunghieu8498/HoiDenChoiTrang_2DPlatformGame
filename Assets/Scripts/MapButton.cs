@@ -24,6 +24,7 @@ public class MapButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     public PlayerMovement player;
     public Sprite guideBoard;
     public Vector2 focusPosition;
+    public Sprite mapNameBoard;
 
     void Start()
     {
@@ -74,7 +75,7 @@ public class MapButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     IEnumerator WaitForColorFade()
     {
         yield return new WaitForSeconds(1f);
-        GameManager.Instance.OpenMapSelected(mapToOpen, player, coloringGame, startMapPosition, focusPosition, guideBoard);
+        GameManager.Instance.OpenMapSelected(mapToOpen, player, coloringGame, startMapPosition, focusPosition, guideBoard, mapNameBoard);
         UIManager.Instance.CloseSelectMapScreen();
     }
 }

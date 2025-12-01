@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
     public GameObject SelectMapScreen;
     public GameObject GuideBoard;
     public GameObject WinBoard;
+    public GameObject LoseBoard;
 
     void Awake()
     {
@@ -57,4 +58,15 @@ public class UIManager : MonoBehaviour
     {
         GuideBoard.SetActive(false);
     }
+
+    public void OpenLoseBoard()
+    {
+        LoseBoard.SetActive(true);
+    }
+    public void CloseLoseBoard()
+    {
+        LoseBoard.SetActive(false);
+    }
 }
+
+    

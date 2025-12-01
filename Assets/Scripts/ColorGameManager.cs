@@ -7,6 +7,7 @@ public class ColorGameManager : MonoBehaviour
     public static ColorGameManager Instance { get; private set; }
     public GameObject guideColoringBoard;
     public GameObject drawBoard;
+    public GameObject drawImage;
     public GameObject rewardBoard;
     public GameObject background;
 
@@ -31,6 +32,7 @@ public class ColorGameManager : MonoBehaviour
     {
         guideColoringBoard.SetActive(false);
         drawBoard.SetActive(true);
+        drawImage.SetActive(true);
         background.SetActive(true);
     }
 
@@ -43,6 +45,7 @@ public class ColorGameManager : MonoBehaviour
         }
 
         Debug.Log("All Colored!");
+        drawImage.SetActive(false);
         finalImage.SetActive(true);
         finalImage.GetComponent<Animator>().Play("ShowUp");
         return true;
@@ -52,6 +55,7 @@ public class ColorGameManager : MonoBehaviour
     {
         if (!CheckCompletedGame()) return;
 
+        finalImage.SetActive(false);
         drawBoard.SetActive(false);
         rewardBoard.SetActive(true);
         GameManager.Instance.CompleteMapLevel();

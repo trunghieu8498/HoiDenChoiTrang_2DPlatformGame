@@ -1,11 +1,19 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
     public bool isMovable = false;
-    [Header("Movement")]
-    public float moveSpeed = 6f;
-    public float jumpForce = 12f;
+
+    [Header("Jump Forces (horizontal, vertical)")]
+    public float horizontalForce = 4f;        // single horizontal
+    public float verticalForce = 7f;          // single vertical
+    public float doubleHorizontalForce = 6f;  // double horizontal
+    public float doubleVerticalForce = 10f;   // double vertical
+
+    [Header("Double click")]
+    public float doubleClickTime = 0.25f;     // cửa sổ double click (giây)
+    public bool requireSameSideForDouble = true; // nếu true, 2 click phải cùng bên để tính double
 
     [Header("Ground Check")]
     public Transform groundCheck;
@@ -13,41 +21,152 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundLayer;
 
     Rigidbody2D rb;
-    float moveInput;
+    Vector3 originalScale;
+
+    // trạng thái click
     bool isGrounded;
+    int pendingClicks = 0;
+    float firstClickTime = 0f;
+    bool firstClickDirectionRight = true;
+    Coroutine clickCoroutine = null;
+    bool isClickLocked = false; // lock để tránh spam liên tục (tuỳ biến)
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        originalScale = transform.localScale;
     }
 
     void Start()
     {
-        isMovable = false;
+        FreezePlayer();
     }
 
     void Update()
     {
         if (!isMovable) return;
 
-        moveInput = Input.GetAxisRaw("Horizontal");
-        rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
+        GroundCheck();
 
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, groundLayer);
-
-        if (Input.GetButtonDown("Jump") && isGrounded)
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-
-        Flip();
+        // Chỉ nhận click khi đang grounded (theo yêu cầu)
+        if (Input.GetMouseButtonDown(0) && isGrounded && !isClickLocked)
+        {
+            HandleClick();
+        }
     }
 
-    void Flip()
+    void HandleClick()
     {
-        if (moveInput != 0)
+        Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        bool clickRight = mouseWorldPos.x > transform.position.x;
+
+        if (pendingClicks == 0)
         {
-            Vector3 scale = transform.localScale;
-            scale.x = Mathf.Abs(scale.x) * Mathf.Sign(moveInput); // giữ y, chỉ đổi x
-            transform.localScale = scale;
+            // lần click đầu
+            pendingClicks = 1;
+            firstClickTime = Time.time;
+            firstClickDirectionRight = clickRight;
+
+            // start coroutine chờ doubleClickTime
+            if (clickCoroutine != null) StopCoroutine(clickCoroutine);
+            clickCoroutine = StartCoroutine(DoubleClickWait(clickRight));
+        }
+        else if (pendingClicks == 1)
+        {
+            // đã có 1 click đang chờ
+            // nếu requireSameSideForDouble == true thì bắt buộc cùng hướng
+            if (!requireSameSideForDouble || clickRight == firstClickDirectionRight)
+            {
+                // click thứ 2 trong thời gian chờ -> double
+                pendingClicks = 2;
+                if (clickCoroutine != null)
+                {
+                    StopCoroutine(clickCoroutine);
+                    clickCoroutine = null;
+                }
+                DoDoubleClickJump(clickRight);
+            }
+            else
+            {
+                // click 2 khác hướng: coi như bắt đầu lại - huỷ hành vi trước, bắt 1 click mới
+                if (clickCoroutine != null)
+                {
+                    StopCoroutine(clickCoroutine);
+                    clickCoroutine = null;
+                }
+                // reset và bắt lại như lần đầu
+                pendingClicks = 1;
+                firstClickTime = Time.time;
+                firstClickDirectionRight = clickRight;
+                clickCoroutine = StartCoroutine(DoubleClickWait(clickRight));
+            }
+        }
+    }
+
+    IEnumerator DoubleClickWait(bool clickRight)
+    {
+        // chờ xem có click thứ 2 không trong cửa sổ doubleClickTime
+        float t0 = Time.time;
+        while (Time.time - t0 < doubleClickTime)
+        {
+            yield return null;
+        }
+
+        // hết thời gian, không có click thứ 2 -> single click action
+        clickCoroutine = null;
+        pendingClicks = 0;
+        DoSingleClickJump(clickRight);
+    }
+
+    void DoSingleClickJump(bool goRight)
+    {
+        // lock ngắn để tránh nhận input ngay lập tức khi rơi (tuỳ bạn có muốn)
+        StartCoroutine(TemporaryClickLock(0.05f));
+        Jump(goRight, horizontalForce, verticalForce);
+        Rotate(goRight);
+    }
+
+    void DoDoubleClickJump(bool goRight)
+    {
+        // lock hơi lâu hơn để tránh spam double
+        StartCoroutine(TemporaryClickLock(0.12f));
+        pendingClicks = 0;
+        Jump(goRight, doubleHorizontalForce, doubleVerticalForce);
+        Rotate(goRight);
+    }
+
+    IEnumerator TemporaryClickLock(float duration)
+    {
+        isClickLocked = true;
+        yield return new WaitForSeconds(duration);
+        isClickLocked = false;
+    }
+
+    void GroundCheck()
+    {
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, groundLayer);
+    }
+
+    void Jump(bool goRight, float hForce, float vForce)
+    {
+        rb.velocity = Vector2.zero;
+        float horizontal = goRight ? hForce : -hForce;
+        float vertical = vForce;
+        rb.AddForce(new Vector2(horizontal, vertical), ForceMode2D.Impulse);
+    }
+
+    void Rotate(bool goRight)
+    {
+        float sign = goRight ? 1f : -1f;
+        transform.localScale = new Vector3(Mathf.Abs(originalScale.x) * sign, originalScale.y, originalScale.z);
+    }
+
+    private void OnDisable()
+    {
+        if (clickCoroutine != null)
+        {
+            StopCoroutine(clickCoroutine);
+            clickCoroutine = null;
         }
     }
 
@@ -55,13 +174,27 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.CompareTag("Deadzone"))
         {
-            GameManager.Instance.RestartGame();
+            UIManager.Instance.OpenLoseBoard();
+            FreezePlayer();
         }
+
         if (collision.CompareTag("FinishLine"))
         {
             Debug.Log("Level Completed!");
-            isMovable = false;
+            FreezePlayer();
             GameManager.Instance.FinishJumpGame();
         }
+    }
+
+    public void FreezePlayer()
+    {
+        isMovable = false;
+        rb.bodyType = RigidbodyType2D.Static;
+    }
+
+    public void UnfreezePlayer()
+    {
+        rb.bodyType = RigidbodyType2D.Dynamic;
+        isMovable = true;
     }
 }

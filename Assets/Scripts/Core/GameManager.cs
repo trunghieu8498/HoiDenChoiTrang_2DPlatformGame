@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
 
     public void StartMapLevel()
     {
-        playerMovement.isMovable = true;
+        playerMovement.UnfreezePlayer();
         mainCamera.FollowPlayer(playerMovement.transform);
         UIManager.Instance.CloseGuideBoard();
     }
@@ -66,6 +66,8 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         playerMovement.transform.position = startPosition;
+        UIManager.Instance.CloseLoseBoard();
+        playerMovement.UnfreezePlayer();
     }
 
     public void FinishJumpGame()
@@ -75,7 +77,7 @@ public class GameManager : MonoBehaviour
 
     public void GoToColoringGame()
     {
-        playerMovement.gameObject.SetActive(false);
+        playerMovement.FreezePlayer();
         UIManager.Instance.WinBoard.SetActive(false);
         mainCamera.FocusOnPoint(coloringGamePosition);
         coloringGame.SetActive(true);
@@ -94,6 +96,7 @@ public class GameManager : MonoBehaviour
         {
             if (mapButtons[i].mapToOpen == currentMap)
             {
+                if(i+1 >= 2) break; //chi mo khoa toi da map 2
                 mapButtons[i + 1].isUnlocked = true;
                 Debug.Log("Unlocked next map!");
                 break;

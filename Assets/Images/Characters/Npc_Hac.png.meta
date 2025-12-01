@@ -551,7 +551,25 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Npc_Hac_0: -735941498246069506
+      Npc_Hac_1: -1847537722285473476
+      Npc_Hac_10: -2595811748787910459
+      Npc_Hac_11: 310148045512595810
+      Npc_Hac_12: -4611945951936278547
+      Npc_Hac_13: 526994337204669072
+      Npc_Hac_14: 6416610701518584850
+      Npc_Hac_15: 5575372252312282696
+      Npc_Hac_16: 8375734858938534117
+      Npc_Hac_17: 9116699771881194082
+      Npc_Hac_2: -1183383535214785746
+      Npc_Hac_3: -7997576936847762803
+      Npc_Hac_4: 8807733389474773898
+      Npc_Hac_5: 179840170575453756
+      Npc_Hac_6: 5639793267192092786
+      Npc_Hac_7: -1317728892526622997
+      Npc_Hac_8: -7189087960357159491
+      Npc_Hac_9: -6804620147707265964
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

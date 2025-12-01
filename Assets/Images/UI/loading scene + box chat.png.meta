@@ -359,7 +359,17 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      loading scene + box chat_0: -3020926793105925902
+      loading scene + box chat_1: 8757692271270949715
+      loading scene + box chat_2: 2676925362147827425
+      loading scene + box chat_3: 3150726350949633547
+      loading scene + box chat_4: 5341858107140593327
+      loading scene + box chat_5: -5658327124950198956
+      loading scene + box chat_6: 1812271646668318280
+      loading scene + box chat_7: 7158519365006780768
+      loading scene + box chat_8: 3388728426540697794
+      loading scene + box chat_9: 2188721876943376994
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

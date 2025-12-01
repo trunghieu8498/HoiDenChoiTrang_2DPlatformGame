@@ -25,7 +25,7 @@ public class SoundManager : MonoBehaviour
             audioSource = GetComponent<AudioSource>();
             audioSource.clip = backgroundMusic;
             audioSource.loop = true;
-            audioSource.Play();
+            // audioSource.Play();
 
             // Chỉ set volume mặc định lần đầu
             SetMusicVolume(defaultVolume);

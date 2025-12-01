@@ -9,6 +9,7 @@ public class BackgroundController : MonoBehaviour
     void Start()
     {
         startPosY = transform.position;
+        
     }
 
     void LateUpdate()

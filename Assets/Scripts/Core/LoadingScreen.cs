@@ -4,26 +4,14 @@ using System.Collections;
 
 public class LoadingScreen : MonoBehaviour
 {
-    public Slider slider;
-
     void Start()
     {
-        StartCoroutine(FillBar());
+        StartCoroutine(WaitLoading());
     }
 
-    IEnumerator FillBar()
+    IEnumerator WaitLoading()
     {
-        float time = 0f;
-        float duration = 5f;
-
-        while (time < duration)
-        {
-            time += Time.deltaTime;
-            slider.value = Mathf.Lerp(0f, 1f, time / duration);
-            yield return null;
-        }
-
-        slider.value = 1f;
-        // MainMenuManager.Instance.LoadGameScene();
+        yield return new WaitForSeconds(1f);
+        MainMenuManager.Instance.LoadGameScene();
     }
 }

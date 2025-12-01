@@ -2,46 +2,78 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    [Header("Target")]
-    public Transform target;
+    public Transform player;
+    public float smoothSpeed = 5f;
+    public float offsetX = 0f;
 
-    [Header("Follow Settings")]
-    public Vector2 offset = new Vector2(0f, 2f);
-    public float smoothTime = 0.2f;
+    [Header("Camera Bounds")]
+    public float minX;
+    public float maxX;
 
-    private Vector3 velocity = Vector3.zero;
-    private bool firstFrame = true;
+    [Header("Zoom Focus")]
+    public bool isFocusing = false;
+    public Vector3 focusPosition;
+    public float focusZoomSpeed = 5f;
+    public float focusZoomSize = 6.5f;      // orthographic size khi zoom
+    private float normalZoomSize;          // lưu size bình thường
+
+    private Camera cam;
+    private Vector3 defaultPosition;
+    private float defaultZoom = 10f;
+
 
     void Start()
     {
-        if (GameManager.Instance != null)
-        {
-            Vector3 savedCamPos = GameManager.Instance.LoadCamera(transform.position);
-            transform.position = new Vector3(savedCamPos.x, savedCamPos.y, transform.position.z);
-        }
+        cam = GetComponent<Camera>();
+        normalZoomSize = cam.orthographicSize;
+
+        // Lưu vị trí và zoom mặc định để reset
+        defaultPosition = transform.position;
+        defaultZoom = cam.orthographicSize;
     }
 
     void LateUpdate()
     {
-        if (target == null) return;
+        Vector3 targetPos;
+        float targetZoom;
 
-        Vector3 targetPosition = new Vector3(
-            target.position.x + offset.x,
-            target.position.y + offset.y,
-            transform.position.z
-        );
-
-        if (firstFrame)
+        if (isFocusing)
         {
-            // lần đầu load, đặt camera ngay lập tức
-            transform.position = targetPosition;
-            firstFrame = false;
-            velocity = Vector3.zero; // reset velocity để SmoothDamp không lướt
+            targetPos = new Vector3(focusPosition.x, focusPosition.y, transform.position.z);
+            targetZoom = focusZoomSize;
         }
         else
         {
-            // di chuyển mượt như bình thường
-            transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
+            if (player == null) return;
+
+            float targetX = Mathf.Clamp(player.position.x + offsetX, minX, maxX);
+            targetPos = new Vector3(targetX, transform.position.y, transform.position.z);
+            targetZoom = normalZoomSize;
         }
+
+        // Di chuyển mượt
+        transform.position = Vector3.Lerp(transform.position, targetPos, smoothSpeed * Time.deltaTime);
+        // Zoom mượt
+        cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, targetZoom, focusZoomSpeed * Time.deltaTime);
+    }
+
+    public void FocusOnPoint(Vector3 point)
+    {
+        focusPosition = point;
+        isFocusing = true;
+    }
+
+    public void FollowPlayer()
+    {
+        isFocusing = false;
+    }
+
+    public void ResetCamera()
+    {
+        isFocusing = false;
+
+        // Đặt lại vị trí và zoom
+        transform.position = defaultPosition;
+        cam.orthographicSize = defaultZoom;
     }
 }

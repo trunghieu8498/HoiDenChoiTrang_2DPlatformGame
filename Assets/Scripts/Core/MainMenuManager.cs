@@ -5,8 +5,8 @@ public class MainMenuManager : MonoBehaviour
 {
     public static MainMenuManager Instance { get; private set; }
     public GameObject mainMenuUI;
-    public GameObject logoScreen;
-    
+    public GameObject loadingScreenUI;
+
     void Start()
     {
         if (Instance == null)
@@ -18,8 +18,16 @@ public class MainMenuManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        logoScreen.SetActive(true);
-        logoScreen.GetComponent<Animator>().Play("Show");
+        mainMenuUI.SetActive(true);
     }
-    
+
+    public void LoadGameScene()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("GameScene");
+    }
+
+    public void ShowLoadingScreen()
+    {
+        loadingScreenUI.SetActive(true);
+    }
 }

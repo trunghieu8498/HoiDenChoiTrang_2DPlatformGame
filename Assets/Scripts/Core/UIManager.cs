@@ -8,8 +8,6 @@ public class UIManager : MonoBehaviour
     public GameObject SelectMapScreen;
     public GameObject GuideBoard;
     public GameObject WinBoard;
-    public GameObject ColoringGuideBoard;
-    public GameObject ColoringGameUI;
 
     void Awake()
     {
@@ -24,6 +22,11 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void LoadMapUI(Sprite guideBoard)
+    {
+        GuideBoard.GetComponent<UnityEngine.UI.Image>().sprite = guideBoard;
+    }
+
     void Start()
     {
         SelectMapScreen.SetActive(true);
@@ -33,7 +36,6 @@ public class UIManager : MonoBehaviour
     {
         SelectMapScreen.SetActive(true);
         CloseGuideBoard();
-
     }
 
     public void LoadMainMenuScene()

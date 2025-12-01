@@ -44,6 +44,7 @@ public class DragItem : MonoBehaviour, IDragHandler, IEndDragHandler
 
             // loại nó khỏi danh sách để lần sau không còn bị check nữa
             correctTargets.Remove(hitTarget);
+            ColorGameManager.Instance.CheckCompletedGame();
         }
 
         // đưa item về vị trí ban đầu

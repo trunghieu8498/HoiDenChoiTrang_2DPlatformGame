@@ -61,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.Log("Level Completed!");
             isMovable = false;
-            GameManager.Instance.FinishMap();
+            GameManager.Instance.FinishJumpGame();
         }
     }
 }

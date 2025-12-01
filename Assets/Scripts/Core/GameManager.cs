@@ -10,11 +10,12 @@ public class GameManager : MonoBehaviour
     public CameraMovement mainCamera;
     public PlayerMovement playerMovement;
     public Vector2 startPosition;
-    public GameObject map1;
-    public GameObject map2;
     public GameObject currentMap;
 
     public Vector3 coloringGamePosition = new Vector3(41, -3.6f, -10);
+    public GameObject coloringGame;
+    public List<MapButton> mapButtons = new List<MapButton>();
+
 
     private void Awake()
     {
@@ -34,21 +35,31 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void OpenMapSelected(GameObject mapToOpen)
+
+    public void OpenMapSelected(GameObject mapToOpen, PlayerMovement player, GameObject coloringGame, Vector2 starPos, Vector2 focusPos, Sprite guideBoard)
     {
         if (currentMap != null)
         {
             currentMap.SetActive(false);
         }
-
         currentMap = mapToOpen;
         currentMap.SetActive(true);
+        playerMovement = player;
+        player.gameObject.SetActive(true);
+        playerMovement.transform.position = starPos;
+        startPosition = starPos;
+
+        coloringGamePosition = new Vector3(focusPos.x, focusPos.y, -10);
+        this.coloringGame = coloringGame;
+
+        UIManager.Instance.LoadMapUI(guideBoard);
         UIManager.Instance.OpenGuideBoard();
     }
 
     public void StartMapLevel()
     {
         playerMovement.isMovable = true;
+        mainCamera.FollowPlayer(playerMovement.transform);
         UIManager.Instance.CloseGuideBoard();
     }
 
@@ -57,7 +68,7 @@ public class GameManager : MonoBehaviour
         playerMovement.transform.position = startPosition;
     }
 
-    public void FinishMap()
+    public void FinishJumpGame()
     {
         UIManager.Instance.WinBoard.SetActive(true);
     }
@@ -65,15 +76,31 @@ public class GameManager : MonoBehaviour
     public void GoToColoringGame()
     {
         playerMovement.gameObject.SetActive(false);
-        mainCamera.FocusOnPoint(coloringGamePosition);
-        UIManager.Instance.ColoringGuideBoard.SetActive(true);
         UIManager.Instance.WinBoard.SetActive(false);
+        mainCamera.FocusOnPoint(coloringGamePosition);
+        coloringGame.SetActive(true);
     }
 
-    public void StartColoringGame()
+    public void CompleteMapLevel()
     {
-        UIManager.Instance.ColoringGuideBoard.SetActive(false);
-        UIManager.Instance.ColoringGameUI.SetActive(true);
+        UnlockNextMap();
         mainCamera.ResetCamera();
     }
+
+    public void UnlockNextMap()
+    {
+        //check xem currentmap thuoc map button nao de mo khoa map ke tiep
+        for (int i = 0; i < mapButtons.Count - 1; i++)
+        {
+            if (mapButtons[i].mapToOpen == currentMap)
+            {
+                mapButtons[i + 1].isUnlocked = true;
+                Debug.Log("Unlocked next map!");
+                break;
+            }
+        }
+        mainCamera.ResetCamera();
+    }
+
+
 }

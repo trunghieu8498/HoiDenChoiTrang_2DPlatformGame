@@ -18,7 +18,7 @@ public class CameraMovement : MonoBehaviour
     private float normalZoomSize;          // lưu size bình thường
 
     private Camera cam;
-    private Vector3 defaultPosition;
+    private Vector3 defaultPosition = new Vector3(0, 0, -10);
     private float defaultZoom = 10f;
 
 
@@ -28,6 +28,13 @@ public class CameraMovement : MonoBehaviour
         normalZoomSize = cam.orthographicSize;
 
         // Lưu vị trí và zoom mặc định để reset
+        defaultPosition = transform.position;
+        defaultZoom = cam.orthographicSize;
+    }
+
+
+    public void SetDefault()
+    {
         defaultPosition = transform.position;
         defaultZoom = cam.orthographicSize;
     }
@@ -63,14 +70,16 @@ public class CameraMovement : MonoBehaviour
         isFocusing = true;
     }
 
-    public void FollowPlayer()
+    public void FollowPlayer(Transform player)
     {
+        this.player = player;
         isFocusing = false;
     }
 
     public void ResetCamera()
     {
         isFocusing = false;
+        player = null;
 
         // Đặt lại vị trí và zoom
         transform.position = defaultPosition;

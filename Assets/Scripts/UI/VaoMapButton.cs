@@ -1,0 +1,18 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class VaoMapButton : MonoBehaviour
+{
+
+    void Start()
+    {
+        GetComponent<Button>().onClick.AddListener(OnVaoMapButtonClicked);
+    }
+
+    void OnVaoMapButtonClicked()
+    {
+        UIManager.Instance.OpenSelecMapScreen();
+    }
+}

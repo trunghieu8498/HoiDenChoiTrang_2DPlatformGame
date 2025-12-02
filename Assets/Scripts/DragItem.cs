@@ -5,13 +5,35 @@ using System.Collections.Generic;
 public class DragItem : MonoBehaviour, IDragHandler, IEndDragHandler
 {
     private Vector3 originalPosition;
-    public List<RectTransform> correctTargets;  // danh sách target
     private Canvas canvas;
+
+    [Header("Target Settings")]
+    public List<RectTransform> correctTargets;  // danh sách target
+    private List<RectTransform> originalTargets; // lưu bản sao để reset
+
+    void Awake()
+    {
+        // khởi tạo an toàn
+        if (correctTargets != null)
+        {
+            originalTargets = new List<RectTransform>();
+            foreach (var t in correctTargets)
+            {
+                if (t != null)
+                    originalTargets.Add(t);
+            }
+        }
+        else
+        {
+            originalTargets = new List<RectTransform>();
+        }
+    }
 
     void Start()
     {
         canvas = GetComponentInParent<Canvas>();
         originalPosition = transform.position;
+        ResetTargets(); // lần đầu chơi, reset target
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -23,10 +45,14 @@ public class DragItem : MonoBehaviour, IDragHandler, IEndDragHandler
     {
         RectTransform hitTarget = null;
 
-        // chỉ check target chưa được kích hoạt
+        if (correctTargets == null) return;
+
+        // tìm target đúng chưa active
         foreach (var target in correctTargets)
         {
-            if (!target.gameObject.activeSelf &&    // target chưa active
+            if (target == null) continue;
+
+            if (!target.gameObject.activeSelf &&
                 RectTransformUtility.RectangleContainsScreenPoint(
                     target,
                     Input.mousePosition,
@@ -39,15 +65,23 @@ public class DragItem : MonoBehaviour, IDragHandler, IEndDragHandler
 
         if (hitTarget != null)
         {
-            // bật target vừa đúng
             hitTarget.gameObject.SetActive(true);
-
-            // loại nó khỏi danh sách để lần sau không còn bị check nữa
-            correctTargets.Remove(hitTarget);
             ColorGameManager.Instance.CheckCompletedGame();
         }
 
-        // đưa item về vị trí ban đầu
         transform.position = originalPosition;
+    }
+
+    public void ResetTargets()
+    {
+        if (originalTargets == null) return;
+
+        foreach (var target in originalTargets)
+        {
+            if (target != null)
+                target.gameObject.SetActive(false);
+        }
+
+        correctTargets = new List<RectTransform>(originalTargets);
     }
 }

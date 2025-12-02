@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 
 public class UIManager : MonoBehaviour
 {
@@ -18,7 +19,6 @@ public class UIManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -38,7 +38,8 @@ public class UIManager : MonoBehaviour
             OpenGuideBoard();
         });
 
-        LobbyScreen.SetActive(true);
+        OpenLobbyScreen();
+
         topUI.SetActive(true);
         GuideBoard.SetActive(false);
         SelectMapScreen.SetActive(false);
@@ -51,6 +52,14 @@ public class UIManager : MonoBehaviour
     {
         LobbyScreen.SetActive(true);
         topUI.SetActive(true);
+        LobbyScreen.GetComponent<VideoLoader>().LoadAndPlayVideo();
+    }
+
+    public void StartMapHandle(Sprite _guideBoard)
+    {
+        LobbyScreen.SetActive(false);
+        ShowTopUI();
+        LoadMapUI(_guideBoard);
     }
 
     public void ShowTopUI()
@@ -62,7 +71,10 @@ public class UIManager : MonoBehaviour
     {
         SelectMapScreen.SetActive(true);
         topUI.SetActive(false);
-        CloseGuideBoard();
+        if(!LobbyScreen.activeSelf)
+        {
+            OpenLobbyScreen();
+        }
     }
 
     public void ShowMapName()

@@ -13,6 +13,7 @@ public class ColorGameManager : MonoBehaviour
 
     public List<GameObject> colorableObjects = new List<GameObject>();
 
+    public List<DragItem> dragItems = new List<DragItem>();
     public GameObject finalImage;
 
     void Awake()
@@ -22,9 +23,30 @@ public class ColorGameManager : MonoBehaviour
 
     private void Start()
     {
+        SetupColoringGame();
+    }
+
+    public void SetupColoringGame()
+    {
         guideColoringBoard.SetActive(true);
         drawBoard.SetActive(false);
+        drawImage.SetActive(false);
+        background.SetActive(false);
         rewardBoard.SetActive(false);
+        finalImage.SetActive(false);
+    }
+
+    public void ResetColoringGame()
+    {
+        foreach (GameObject part in colorableObjects)
+        {
+            part.SetActive(false);
+        }
+
+        foreach (var dragItem in dragItems)
+        {
+            dragItem.ResetTargets();
+        }
     }
 
     //active by click button
@@ -34,6 +56,7 @@ public class ColorGameManager : MonoBehaviour
         drawBoard.SetActive(true);
         drawImage.SetActive(true);
         background.SetActive(true);
+        ResetColoringGame();
     }
 
     public bool CheckCompletedGame()

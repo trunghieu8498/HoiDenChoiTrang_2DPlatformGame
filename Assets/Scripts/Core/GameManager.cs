@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -14,9 +13,10 @@ public class GameManager : MonoBehaviour
     public Vector2 startPosition;
     public Vector2 endPosition;
     public GameObject currentMap;
+    public StarPool starPool;
 
     public Vector3 coloringGamePosition = new Vector3(41, -3.6f, -10);
-    public GameObject coloringGame;
+    public ColorGameManager coloringGame;
     public List<MapButton> mapButtons = new List<MapButton>();
 
 
@@ -29,7 +29,6 @@ public class GameManager : MonoBehaviour
         }
 
         Instance = this;
-        DontDestroyOnLoad(gameObject);
     }
 
 
@@ -39,23 +38,25 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public void OpenMapSelected(GameObject mapToOpen, PlayerMovement player, GameObject coloringGame, Vector2 starPos, Vector2 focusPos, Sprite guideBoard, Sprite mapNameBoard)
+    public void OpenMapSelected(GameObject mapToOpen, PlayerMovement player, ColorGameManager coloringGame, Vector2 starPos, Vector2 focusPos, Sprite guideBoard, Sprite mapNameBoard, StarPool starPool)
     {
         if (currentMap != null)
         {
             currentMap.SetActive(false);
         }
+
+        UIManager.Instance.StartMapHandle(guideBoard);
+
         currentMap = mapToOpen;
         currentMap.SetActive(true);
         playerMovement = player;
         player.gameObject.SetActive(true);
+        starPool.ResetStars();
         playerMovement.transform.position = starPos;
         startPosition = starPos;
         UIManager.Instance.MapName.GetComponent<UnityEngine.UI.Image>().sprite = mapNameBoard;
         coloringGamePosition = new Vector3(focusPos.x, focusPos.y, -10);
         this.coloringGame = coloringGame;
-        UIManager.Instance.ShowTopUI();
-        UIManager.Instance.LoadMapUI(guideBoard);
         PreviewMapLevel(starPos, endPosition);
     }
 
@@ -97,7 +98,9 @@ public class GameManager : MonoBehaviour
         playerMovement.FreezePlayer();
         UIManager.Instance.WinBoard.SetActive(false);
         mainCamera.FocusOnPoint(coloringGamePosition);
-        coloringGame.SetActive(true);
+        coloringGame.gameObject.SetActive(true);
+        coloringGame.ResetColoringGame();
+        coloringGame.SetupColoringGame();
     }
 
     public void CompleteMapLevel()
@@ -122,5 +125,8 @@ public class GameManager : MonoBehaviour
         mainCamera.ResetCamera();
     }
 
-
+    public void LoadMainMenuScene()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
+    }
 }

@@ -1,24 +1,28 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class MainMenuManager : MonoBehaviour
 {
     public static MainMenuManager Instance { get; private set; }
     public GameObject mainMenuUI;
-    public GameObject loadingScreenUI;
+    public VideoLoader loadingScreen;
 
     void Start()
     {
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {
             Destroy(gameObject);
         }
         mainMenuUI.SetActive(true);
+        loadingScreen.onVideoEnd.AddListener(() =>
+        {
+            LoadGameScene();
+        });
     }
 
     public void LoadGameScene()
@@ -28,7 +32,8 @@ public class MainMenuManager : MonoBehaviour
 
     public void ShowLoadingScreen()
     {
-        loadingScreenUI.SetActive(true);
+        loadingScreen.gameObject.SetActive(true);
+        loadingScreen.LoadAndPlayVideo();
     }
 
     public void QuitGame()

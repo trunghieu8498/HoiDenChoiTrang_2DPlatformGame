@@ -124,7 +124,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3600795507646862278, guid: 125146fe7aa58ba4e863597abd6a771b, type: 3}
   m_PrefabInstance: {fileID: 6965777964076565798}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 306953370}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 199acc0cd65e50a4b9d594ebe21b4503, type: 3}
@@ -348,7 +348,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 8400000, guid: 696fd40ddd5f1414cb1b35dce4f2c48e, type: 2}
+  m_Texture: {fileID: 8400000, guid: 5d6c8976fd1116f40badc859c5c3fb3d, type: 2}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -1431,6 +1431,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf802c23420050246802576da0f9f324, type: 3}
+--- !u!1 &306953370 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6526737331580430166, guid: 125146fe7aa58ba4e863597abd6a771b, type: 3}
+  m_PrefabInstance: {fileID: 6965777964076565798}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &306953375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306953370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7088153534f06cc43a3d5665b04c51e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mapData:
+    mapID: 1
+    defaultUnlocked: 1
+    mapPrefab: {fileID: 0}
+    startMapPosition: {x: 0, y: 0}
+    focusPosition: {x: 0, y: 0}
+    guideBoard: {fileID: 0}
+    mapNameBoard: {fileID: 0}
+    starPool: {fileID: 0}
+  player: {fileID: 0}
+  scaleAmount: 1.1
+  speed: 8
+  fadeSpeed: 2
+  colorGameManager: {fileID: 0}
 --- !u!1 &308446121 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8653719598885068355, guid: 3d09ec0a748a8d54e901fc019edaf20f, type: 3}
@@ -12854,6 +12885,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1590933969}
     - target: {fileID: 3600795507646862278, guid: 125146fe7aa58ba4e863597abd6a771b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3600795507646862278, guid: 125146fe7aa58ba4e863597abd6a771b, type: 3}
       propertyPath: mapToOpen
       value: 
       objectReference: {fileID: 1672714705}
@@ -12984,7 +13019,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6526737331580430166, guid: 125146fe7aa58ba4e863597abd6a771b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 306953375}
   m_SourcePrefab: {fileID: 100100000, guid: 125146fe7aa58ba4e863597abd6a771b, type: 3}
 --- !u!1001 &7552436744705755109
 PrefabInstance:

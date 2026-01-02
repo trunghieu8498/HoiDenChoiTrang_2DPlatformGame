@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ColorGameManager : MonoBehaviour
 {
-    public static ColorGameManager Instance { get; private set; }
+    // public static ColorGameManager Instance { get; private set; }
     public GameObject guideColoringBoard;
     public GameObject drawBoard;
     public GameObject drawImage;
@@ -16,10 +16,10 @@ public class ColorGameManager : MonoBehaviour
     public List<DragItem> dragItems = new List<DragItem>();
     public GameObject finalImage;
 
-    void Awake()
-    {
-        Instance = this;
-    }
+    // void Awake()
+    // {
+    //     Instance = this;
+    // }
 
     private void Start()
     {

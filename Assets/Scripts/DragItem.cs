@@ -66,7 +66,7 @@ public class DragItem : MonoBehaviour, IDragHandler, IEndDragHandler
         if (hitTarget != null)
         {
             hitTarget.gameObject.SetActive(true);
-            ColorGameManager.Instance.CheckCompletedGame();
+            // ColorGameManager.Instance.CheckCompletedGame();
         }
 
         transform.position = originalPosition;

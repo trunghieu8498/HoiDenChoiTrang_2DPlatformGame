@@ -7,31 +7,30 @@ public class MapButtonController : MonoBehaviour, IPointerEnterHandler, IPointer
 {
     [Header("Data")]
     public MapData mapData;
-    public PlayerMovement player;
 
     [Header("Animation")]
-    public float scaleAmount = 1.05f;
-    public float speed = 10f;
-    public float fadeSpeed = 2f;
-    public ColorGameManager colorGameManager;
+    private float scaleAmount = 1.1f;
+    private float speed = 8f;
+    private float fadeSpeed = 2f;
 
-    Image img;
-    Vector3 originalScale;
-    Vector3 targetScale;
+    private Image img;
+    private Vector3 originalScale;
+    private Vector3 targetScale;
+    private bool fadeToNormal;
 
-    Color originalColor;
-    Color grayColor;
-    bool fadeToNormal;
-
+    private Color originalColor;
+    private Color grayColor = Color.gray;
 
 
     void Start()
     {
         img = GetComponent<Image>();
         originalColor = img.color;
-        grayColor = Color.gray;
-
-        bool unlocked = mapData.IsUnlocked();
+        bool unlocked = false;
+        if (mapData != null)
+        {
+            unlocked = mapData.IsUnlocked();
+        }
 
         originalScale = transform.localScale;
         if (unlocked)
@@ -88,8 +87,8 @@ public class MapButtonController : MonoBehaviour, IPointerEnterHandler, IPointer
 
         GameManager.Instance.OpenMapSelected(
             mapData.mapPrefab,
-            player,
-            colorGameManager,
+            mapData.player,
+            mapData.colorGameManager,
             mapData.startMapPosition,
             mapData.focusPosition,
             mapData.guideBoard,

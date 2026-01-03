@@ -1,11 +1,10 @@
 using UnityEngine;
 
-[System.Serializable]
-public class MapData
+public class MapData : MonoBehaviour
 {
     [Header("ID & State")]
     public string mapID;
-    public bool defaultUnlocked;
+    private bool isUnlocked = false;
 
     [Header("Map Content")]
     public GameObject mapPrefab;
@@ -18,16 +17,18 @@ public class MapData
 
     [Header("Gameplay")]
     public StarPool starPool;
+    public ColorGameManager colorGameManager;
 
-
+    public PlayerMovement player;
 
     public bool IsUnlocked()
     {
-        return PlayerPrefs.GetInt(mapID, defaultUnlocked ? 1 : 0) == 1;
+        return PlayerPrefs.GetInt(mapID, isUnlocked ? 1 : 0) == 1;
     }
 
     public void Unlock()
     {
+        isUnlocked = true;
         PlayerPrefs.SetInt(mapID, 1);
         PlayerPrefs.Save();
     }

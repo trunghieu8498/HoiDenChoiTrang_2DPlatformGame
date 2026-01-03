@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5440445374665967215}
   - component: {fileID: 1090679700463721104}
   - component: {fileID: 7266108013735450358}
-  - component: {fileID: 5281736434311508308}
+  - component: {fileID: -5976615742160702693}
   m_Layer: 0
   m_Name: Map_Btn
   m_TagString: Untagged
@@ -121,8 +121,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5281736434311508308}
-        m_TargetAssemblyTypeName: MapButton, Assembly-CSharp
+      - m_Target: {fileID: -5976615742160702693}
+        m_TargetAssemblyTypeName: MapButtonController, Assembly-CSharp
         m_MethodName: OnMapButtonClicked
         m_Mode: 1
         m_Arguments:
@@ -133,7 +133,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &5281736434311508308
+--- !u!114 &-5976615742160702693
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -142,9 +142,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2461012858815432132}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 199acc0cd65e50a4b9d594ebe21b4503, type: 3}
+  m_Script: {fileID: 11500000, guid: 7088153534f06cc43a3d5665b04c51e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isUnlocked: 1
-  scaleAmount: 1.1
-  speed: 8
+  mapData: {fileID: 0}

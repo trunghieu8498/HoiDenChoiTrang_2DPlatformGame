@@ -17,7 +17,8 @@ public class GameManager : MonoBehaviour
 
     public Vector3 coloringGamePosition = new Vector3(41, -3.6f, -10);
     public ColorGameManager coloringGame;
-    public List<MapButton> mapButtons = new List<MapButton>();
+    // public List<MapButton> mapButtons = new List<MapButton>();
+    public List<MapButtonController> mapButtons = new List<MapButtonController>();
 
 
     private void Awake()
@@ -29,12 +30,6 @@ public class GameManager : MonoBehaviour
         }
 
         Instance = this;
-    }
-
-
-    private void Start()
-    {
-
     }
 
 
@@ -114,10 +109,15 @@ public class GameManager : MonoBehaviour
         //check xem currentmap thuoc map button nao de mo khoa map ke tiep
         for (int i = 0; i < mapButtons.Count - 1; i++)
         {
-            if (mapButtons[i].mapToOpen == currentMap)
+            if (mapButtons[i].mapData.mapPrefab == currentMap)
             {
-                if (i + 1 >= 2) break; //chi mo khoa toi da map 2
-                mapButtons[i + 1].isUnlocked = true;
+                if (i + 1 >= 5) break; //chi mo khoa toi da map 5
+                var nextMap = mapButtons[i + 1];
+
+                if (nextMap.mapData == null) break;
+                
+                nextMap.mapData.Unlock();
+
                 Debug.Log("Unlocked next map!");
                 break;
             }

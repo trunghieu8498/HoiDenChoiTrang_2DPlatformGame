@@ -15,12 +15,7 @@ public class ColorGameManager : MonoBehaviour
 
     public List<DragItem> dragItems = new List<DragItem>();
     public GameObject finalImage;
-
-    // void Awake()
-    // {
-    //     Instance = this;
-    // }
-
+    
     private void Start()
     {
         SetupColoringGame();

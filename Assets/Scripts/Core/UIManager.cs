@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour
     public GameObject LoseBoard;
     public GameObject MapName;
     public GameObject topUI;
+    public GameObject blackPanel;
 
     void Awake()
     {
@@ -33,32 +34,33 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
-        GameManager.Instance.mainCamera.onPreviewMapCompleted.AddListener(() =>
-        {
-            OpenGuideBoard();
-        });
-
         OpenLobbyScreen();
 
-        topUI.SetActive(true);
+        ShowTopUI();
         GuideBoard.SetActive(false);
         SelectMapScreen.SetActive(false);
         LoseBoard.SetActive(false);
         WinBoard.SetActive(false);
         MapName.SetActive(false);
+
+        GameManager.Instance.mainCamera.onPreviewMapCompleted.AddListener(() =>
+        {
+            OpenGuideBoard();
+            HideMapName();
+            HideTopUI();
+        });
     }
 
     public void OpenLobbyScreen()
     {
         LobbyScreen.SetActive(true);
-        topUI.SetActive(true);
+        ShowTopUI();
         LobbyScreen.GetComponent<VideoLoader>().LoadAndPlayVideo();
     }
 
     public void StartMapHandle(Sprite _guideBoard)
     {
         LobbyScreen.SetActive(false);
-        ShowTopUI();
         LoadMapUI(_guideBoard);
     }
 
@@ -66,12 +68,16 @@ public class UIManager : MonoBehaviour
     {
         topUI.SetActive(true);
     }
+    public void HideTopUI()
+    {
+        topUI.SetActive(false);
+    }
 
     public void OpenSelecMapScreen()
     {
         SelectMapScreen.SetActive(true);
-        topUI.SetActive(false);
-        if(!LobbyScreen.activeSelf)
+        ShowTopUI();
+        if (!LobbyScreen.activeSelf)
         {
             OpenLobbyScreen();
         }
@@ -79,7 +85,14 @@ public class UIManager : MonoBehaviour
 
     public void ShowMapName()
     {
+        ShowTopUI();
         MapName.SetActive(true);
+    }
+
+    public void HideMapName()
+    {
+        MapName.SetActive(false);
+        HideTopUI();
     }
 
     public void LoadMainMenuScene()
@@ -95,21 +108,52 @@ public class UIManager : MonoBehaviour
     public void OpenGuideBoard()
     {
         GuideBoard.SetActive(true);
+        ShowBlackPanel();
+        HideTopUI();
     }
 
     public void CloseGuideBoard()
     {
         GuideBoard.SetActive(false);
         MapName.SetActive(false);
+        ShowTopUI();
+        HideBlackPanel();
     }
 
-    public void OpenLoseBoard()
+    public void ShowLoseBoard()
     {
         LoseBoard.SetActive(true);
+        ShowBlackPanel();
+        HideTopUI();
     }
-    public void CloseLoseBoard()
+    public void HideLoseBoard()
     {
         LoseBoard.SetActive(false);
+        HideBlackPanel();
+        ShowTopUI();
+    }
+
+    public void ShowBlackPanel()
+    {
+        blackPanel.SetActive(true);
+    }
+    public void HideBlackPanel()
+    {
+        blackPanel.SetActive(false);
+    }
+
+    public void ShowWinBoard()
+    {
+        WinBoard.SetActive(true);
+        ShowBlackPanel();
+        HideTopUI();
+    }
+
+    public void HideWinBoard()
+    {
+        WinBoard.SetActive(false);
+        HideBlackPanel();
+        ShowTopUI();
     }
 }
 

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class StarController : MonoBehaviour
 {
+    public bool isBiggerStar = false;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))

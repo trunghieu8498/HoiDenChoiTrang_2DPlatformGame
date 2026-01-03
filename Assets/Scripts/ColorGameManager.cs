@@ -15,7 +15,7 @@ public class ColorGameManager : MonoBehaviour
 
     public List<DragItem> dragItems = new List<DragItem>();
     public GameObject finalImage;
-    
+
     private void Start()
     {
         SetupColoringGame();
@@ -29,6 +29,9 @@ public class ColorGameManager : MonoBehaviour
         background.SetActive(false);
         rewardBoard.SetActive(false);
         finalImage.SetActive(false);
+
+        UIManager.Instance.ShowBlackPanel();
+        UIManager.Instance.HideTopUI();
     }
 
     public void ResetColoringGame()
@@ -52,6 +55,7 @@ public class ColorGameManager : MonoBehaviour
         drawImage.SetActive(true);
         background.SetActive(true);
         ResetColoringGame();
+        UIManager.Instance.HideBlackPanel();
     }
 
     public bool CheckCompletedGame()

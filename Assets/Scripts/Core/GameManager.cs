@@ -79,20 +79,20 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         playerMovement.transform.position = startPosition;
-        UIManager.Instance.CloseLoseBoard();
+        UIManager.Instance.HideLoseBoard();
         playerMovement.UnfreezePlayer();
     }
 
     public void FinishJumpGame()
     {
-        UIManager.Instance.WinBoard.SetActive(true);
+        UIManager.Instance.ShowWinBoard();
     }
 
     public void GoToColoringGame()
     {
         playerMovement.FreezePlayer();
-        UIManager.Instance.WinBoard.SetActive(false);
-        mainCamera.FocusOnPoint(coloringGamePosition);
+        UIManager.Instance.HideWinBoard();
+        // mainCamera.FocusOnPoint(coloringGamePosition);
         coloringGame.gameObject.SetActive(true);
         coloringGame.ResetColoringGame();
         coloringGame.SetupColoringGame();
@@ -115,7 +115,7 @@ public class GameManager : MonoBehaviour
                 var nextMap = mapButtons[i + 1];
 
                 if (nextMap.mapData == null) break;
-                
+
                 nextMap.mapData.Unlock();
 
                 Debug.Log("Unlocked next map!");

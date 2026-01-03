@@ -21,6 +21,9 @@ public class MapData : MonoBehaviour
 
     public PlayerMovement player;
 
+    public float startCameraPositionX;
+    public float endCameraPositionX;
+
     public bool IsUnlocked()
     {
         return PlayerPrefs.GetInt(mapID, isUnlocked ? 1 : 0) == 1;

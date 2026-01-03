@@ -222,7 +222,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.CompareTag("Deadzone"))
         {
-            UIManager.Instance.OpenLoseBoard();
+            UIManager.Instance.ShowLoseBoard();
             FreezePlayer();
         }
 

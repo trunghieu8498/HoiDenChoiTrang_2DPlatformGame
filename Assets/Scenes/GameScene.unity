@@ -13598,7 +13598,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1013982962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13612,7 +13612,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapID: 4
-  isUnlocked: 0
+  isUnlocked: 1
   mapPrefab: {fileID: 1013982961}
   startMapPosition: {x: -10.5, y: -5.266504}
   focusPosition: {x: 40, y: -1.5}

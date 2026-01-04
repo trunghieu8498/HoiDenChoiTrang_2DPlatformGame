@@ -21,26 +21,38 @@ public class MapButtonController : MonoBehaviour, IPointerEnterHandler, IPointer
     private Color originalColor;
     private Color grayColor = Color.gray;
 
+    private Material runtimeMat;
+    private float grayValue = 1f;
+    private bool isUnlocked;
 
-    void Start()
+    void OnEnable()
     {
+        ColorHandle();
+    }
+
+    void ColorHandle()
+    {
+        isUnlocked = mapData != null && mapData.IsUnlocked();
         img = GetComponent<Image>();
-        originalColor = img.color;
-        bool unlocked = false;
-        if (mapData != null)
-        {
-            unlocked = mapData.IsUnlocked();
-        }
+
+        runtimeMat = Instantiate(img.material);
+        img.material = runtimeMat;
 
         originalScale = transform.localScale;
-        if (unlocked)
+
+        isUnlocked = mapData != null && mapData.IsUnlocked();
+
+        if (isUnlocked)
         {
-            originalScale += Vector3.one * 0.2f;
-            img.color = originalColor;
+            // Map đã unlock từ trước → HIỂN THỊ MÀU NGAY
+            runtimeMat.SetFloat("_GrayAmount", 0f);
+            grayValue = 0f;
         }
         else
         {
-            img.color = grayColor;
+            // Map chưa unlock → xám
+            runtimeMat.SetFloat("_GrayAmount", 1f);
+            grayValue = 1f;
         }
 
         targetScale = originalScale;
@@ -53,33 +65,40 @@ public class MapButtonController : MonoBehaviour, IPointerEnterHandler, IPointer
 
         if (fadeToNormal)
         {
-            img.color =
-                Color.Lerp(img.color, originalColor, Time.deltaTime * fadeSpeed);
+            grayValue = Mathf.Lerp(grayValue, 0f, Time.deltaTime * fadeSpeed);
+            runtimeMat.SetFloat("_GrayAmount", grayValue);
         }
     }
 
+
     public void OnPointerEnter(PointerEventData eventData)
     {
+        if (!isUnlocked) return;
         targetScale = originalScale * scaleAmount;
     }
+
 
     public void OnPointerExit(PointerEventData eventData)
     {
         targetScale = originalScale;
     }
 
+
     public void OnMapButtonClicked()
     {
-        if (!mapData.IsUnlocked())
+        if (!isUnlocked)
         {
             Debug.Log("This map is locked!");
             return;
         }
 
-        fadeToNormal = true;
-        mapData.Unlock();
+        // chỉ to lên, KHÔNG đổi màu nữa
+        targetScale = originalScale * scaleAmount;
+
         StartCoroutine(OpenMapAfterFade());
     }
+
+
 
     IEnumerator OpenMapAfterFade()
     {

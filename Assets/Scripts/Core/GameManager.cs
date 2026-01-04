@@ -32,6 +32,11 @@ public class GameManager : MonoBehaviour
         Instance = this;
     }
 
+    void Start()
+    {
+        mapButtons[0].mapData.Unlock();
+    }
+
 
     public void OpenMapSelected(GameObject mapToOpen, PlayerMovement player, ColorGameManager coloringGame, Vector2 starPos, Vector2 focusPos, Sprite guideBoard, Sprite mapNameBoard, StarPool starPool)
     {
@@ -109,6 +114,8 @@ public class GameManager : MonoBehaviour
         //check xem currentmap thuoc map button nao de mo khoa map ke tiep
         for (int i = 0; i < mapButtons.Count - 1; i++)
         {
+            Debug.Log(mapButtons[i].mapData.mapPrefab.name);
+            Debug.Log(currentMap.name);
             if (mapButtons[i].mapData.mapPrefab == currentMap)
             {
                 if (i + 1 >= 5) break; //chi mo khoa toi da map 5

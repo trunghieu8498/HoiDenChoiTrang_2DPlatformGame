@@ -4,6 +4,7 @@ public class MapData : MonoBehaviour
 {
     [Header("ID & State")]
     public string mapID;
+    [SerializeField]
     private bool isUnlocked = false;
 
     [Header("Map Content")]
@@ -26,13 +27,14 @@ public class MapData : MonoBehaviour
 
     public bool IsUnlocked()
     {
-        return PlayerPrefs.GetInt(mapID, isUnlocked ? 1 : 0) == 1;
+        // return PlayerPrefs.GetInt(mapID, isUnlocked ? 1 : 0) == 1;
+        return isUnlocked;
     }
 
     public void Unlock()
     {
         isUnlocked = true;
-        PlayerPrefs.SetInt(mapID, 1);
-        PlayerPrefs.Save();
+        // PlayerPrefs.SetInt(mapID, 1);
+        // PlayerPrefs.Save();
     }
 }
